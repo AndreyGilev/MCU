@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/CMakeFiles/picotoolBuild"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/CMakeFiles/picotoolBuild.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/CMakeFiles/picotoolBuild-complete.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule"
+		},
+		{
+			"file" : "/home/andrew0808/Repositories/pico/MCU/01-blink/build/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picotoolBuild"
+		],
+		"name" : "picotoolBuild"
+	}
+}

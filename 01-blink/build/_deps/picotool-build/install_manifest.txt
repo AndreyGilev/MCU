@@ -1,0 +1,7 @@
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/picotool
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/picotoolTargets.cmake
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/picotoolTargets-release.cmake
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/picotoolConfig.cmake
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/picotoolConfigVersion.cmake
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/enc_bootloader.elf
+/home/andrew0808/Repositories/pico/MCU/01-blink/build/_deps/picotool/enc_bootloader_mbedtls.elf
