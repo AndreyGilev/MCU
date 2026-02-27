@@ -19,6 +19,8 @@ void mem_callback(const char* args);
 void wmem_callback(const char* args);
 void get_adc_callback(const char* args);
 void get_temp_callback(const char* args);
+void tm_start_callback(const char* args);
+void tm_stop_callback(const char* args);
 
 uint32_t mem(uint32_t addr)
 {
@@ -42,6 +44,8 @@ api_t device_api[] =
     {"wmem", wmem_callback, "write data to address"},
     {"get_adc", get_adc_callback, "get analog value of voltage"},
     {"get_temp", get_temp_callback, "get value of temperature in celcius degrees"},
+    {"tm_start", tm_start_callback, "start measures"},
+    {"tm_stop", tm_stop_callback, "stop measures"},
 	{NULL, NULL, NULL},
 };
 
@@ -116,6 +120,14 @@ void get_temp_callback(const char* args){
     printf("%f\n", temp_C);
 }
 
+void tm_start_callback(const char* args){
+    adc_task_set_state(1);
+}
+
+void tm_stop_callback(const char* args){
+    adc_task_set_state(0);
+}
+
 int main(){
     stdio_init_all();
     stdio_task_init();
@@ -129,5 +141,6 @@ int main(){
             protocol_task_handle(command);
         }
         led_task_handle();
+        adc_task_handle();
     }
 }
