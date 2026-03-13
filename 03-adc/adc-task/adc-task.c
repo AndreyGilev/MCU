@@ -7,7 +7,7 @@
 adc_task_state_t adc_state;
 uint64_t time;
 uint64_t ADC_TASK_MEAS_PERIOD_US = 100000;
-static uint LED_PIN = 25;
+static const uint LED_PIN = 25;
 const uint ADC_CH = 0; // номер канала АЦП
 const uint TEMP_CH = 4; // номер канала, подключенного к датчику температуры
 
@@ -23,14 +23,14 @@ void adc_task_init(){
 float get_voltage(){
     adc_select_input(ADC_CH);
     uint16_t voltage_counts = adc_read();
-    float voltage_V = voltage_counts / 4096 * 3.3;
+    float voltage_V = voltage_counts / 4096.0f * 3.3f;
     return voltage_V;
 }
 
 float get_temp(){
     adc_select_input(TEMP_CH);
     uint16_t voltage_counts = adc_read();
-    float voltage_V = voltage_counts / 4096 * 3.3;
+    float voltage_V = voltage_counts / 4096.0f * 3.3f;
     float temp_C = 27.0f - (voltage_V - 0.706f) / 0.001721f;
     return temp_C;
 }

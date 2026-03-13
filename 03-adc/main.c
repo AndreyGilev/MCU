@@ -129,11 +129,11 @@ void tm_stop_callback(const char* args){
 }
 
 int main(){
+    adc_task_init();
     stdio_init_all();
     stdio_task_init();
     protocol_task_init(device_api);
     led_task_init();
-    adc_task_init();
     while(1){
         char* command = stdio_task_handle();
         if (command != NULL)

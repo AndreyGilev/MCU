@@ -4,7 +4,7 @@
 #include "hardware/gpio.h"
 #include "stdint.h"
 
-static uint LED_PIN = 25;
+static const uint LED_PIN = 25;
 uint32_t LED_BLINK_PERIOD_US = 500000;
 
 uint64_t led_ts;
