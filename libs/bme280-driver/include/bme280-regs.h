@@ -1,21 +1,41 @@
 #pragma once
 
-#define BME280_REG_id 0xD0
-#define BME280_REG_reset 0xE0
-#define BME280_REG_ctrl_hum 0xF2
-#define BME280_REG_status 0xF3
-#define BME280_REG_ctrl_meas 0xF4
-#define BME280_REG_config 0xF5
+#define BME280_REG_id 0xD0 // Идентификатор чипа (0x60 для BME280, 0x58 для BMP280)
+#define BME280_REG_reset 0xE0 //Программный сброс (запись 0xB6 в регистр приведёт к сбросу)
+#define BME280_REG_ctrl_hum 0xF2 //	Управление измерением влажности (НЕТ для BMP280)
+// Управляет оверсемплингом влажности аналогично температуре и давлению
+// Изменения в регистре ctrl_hum вступают в силу только после записи в ctrl_meas
 
-#define BME280_REG_press_msb 0xF7
-#define BME280_REG_press_lsb 0xF8
-#define BME280_REG_press_xlsb 0xF9
+#define BME280_REG_status 0xF3 // 	Статус датчика
+#define BME280_REG_ctrl_meas 0xF4 // Задает параметры сбора данных давления и температуры
+/*
+Биты |	   Поле   |	Назначение
+7:5	 |osrs_t[2:0] |	Оверсемплинг температуры
+4:2	 |osrs_p[2:0] |	Оверсемплинг давления
+1:0	 |mode[1:0]	  | Режим работы (00 = sleep, 01/10 = forced, 11 = normal, подробнее на стр 15 data sheet)
 
-#define BME280_REG_temp_msb 0xFA
-#define BME280_REG_temp_lsb 0xFB
-#define BME280_REG_temp_xlsb 0xFC
+Оверсемплинг (oversampling) — это усреднение нескольких измерений
 
-#define BME280_REG_hum_msb 0xFD
-#define BME280_REG_hum_lsb 0xFE
+Значение osrs_x | Оверсемплинг
+000	            | Пропустить измерение output set to 0x8000
+001	            | ×1
+010	            | ×2
+011	            | ×4
+100	            | ×8
+101 и выше      | ×16
+*/
 
-#define BME280_REG_calib00 0x88
+#define BME280_REG_config 0xF5 // Настройка фильтра и периода ожидания
+
+// Результаты измерений хранятся в регистрах:
+#define BME280_REG_press_msb 0xF7 // Данные давления (20 бит)
+#define BME280_REG_press_lsb 0xF8 // 
+#define BME280_REG_press_xlsb 0xF9 //--------------------------
+#define BME280_REG_temp_msb 0xFA // Данные температуры (20 бит)
+#define BME280_REG_temp_lsb 0xFB //
+#define BME280_REG_temp_xlsb 0xFC // --------------------------
+#define BME280_REG_hum_msb 0xFD // Данные влажности (16 бит) (НЕТ для BMP280)
+#define BME280_REG_hum_lsb 0xFE//------------------------------
+// Эти значения — «сырые» показания АЦП. Для получения физических величин нужно применить формулы компенсации с использованием калибровочных коэффициентов.
+
+#define BME280_REG_calib00 0x88 // Калибровочные коэффициенты 26 штук
